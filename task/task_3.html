@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 3</title>
+</head>
+
+<body>
+
+   <a href="../index.html">Back</a>
+   <script>
+      // Задача 3. Розробити клас MultChecker для перевірки таблиці множення
+
+      //------ Поля(властивості)
+      // 1. Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7)
+      // 2. Кількість правильних відповідей
+      // 3. Кількість неправильних відповідей
+
+      //------ Методи (дії)
+      // 1. Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)
+      // 2. Перевірка правильності вказаної відповіді
+      // 3. render - виведення інформації про тестування на екран
+
+      //----------------------------------- Опис класу ----------------------------------------
+      class MultChecker {
+         constructor(checkedNumber, counterCarrentAnswer, counterWrongAnswer) {
+            this.checkedNumber = checkedNumber
+            this.counterCarrentAnswer = counterCarrentAnswer
+            this.counterWrongAnswer = counterWrongAnswer
+         }
+
+         getRandomNumber(minValue, maxValue) {
+            return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+         }
+
+         getTast() {
+            const randomSecondNumber = this.getRandomNumber(1, 9)
+            const result = this.checkedNumber * randomSecondNumber
+            const userAnswer = parseInt(prompt(`Обчисліть результат виразу ${this.checkedNumber} * ${randomSecondNumber}`))
+            this.checkedAnswer(result, userAnswer)
+         }
+
+         checkedAnswer(result, userAnswer) {
+            if (userAnswer === result) {
+               alert('Вірно!')
+               this.counterCarrentAnswer += 1
+            }
+            else {
+               alert('Неправильно')
+               this.counterWrongAnswer += 1
+            }
+         }
+
+         render() {
+            alert(`Правильних відповідей ${this.counterCarrentAnswer}, неправильних відповідей ${this.counterWrongAnswer}`)
+         }
+      }
+
+//----------------------------------- Конструктор функції ----------------------------------------
+
+      // function MultChecker (checkedNumber,counterCarrentAnswer,counterWrongAnswer){
+      //   this.checkedNumber = checkedNumber
+      //   this.counterCarrentAnswer = counterCarrentAnswer
+      //   this.counterWrongAnswer = counterWrongAnswer
+      // }
+
+      // MultChecker.prototype.getRandomNumber = function(minValue, maxValue){
+      //     return minValue + Math.floor(Math.random()*(maxValue-minValue+1))
+      //   }
+
+      // MultChecker.prototype.getTast = function(){
+      //     const randomSecondNumber = this.getRandomNumber(1, 9)
+      //     const result = this.checkedNumber * randomSecondNumber
+      //     const userAnswer = parseInt(prompt(`Обчисліть результат виразу ${this.checkedNumber} * ${randomSecondNumber}`))
+      //     this.checkedAnswer(result,userAnswer)
+      //   }
+
+      // MultChecker.prototype.checkedAnswer = function(result,userAnswer){
+      //   if(userAnswer === result){
+      //       alert ('Вірно!')
+      //       this.counterCarrentAnswer +=1
+      //     }
+      //     else{
+      //       alert ('Неправильно')
+      //       this.counterWrongAnswer +=1
+      //     }
+      // }
+
+      // MultChecker.prototype.render = function(){
+      //   alert(`Правильних відповідей ${this.counterCarrentAnswer}, неправильних відповідей ${this.counterWrongAnswer}`)
+      // }
+   </script>
+</body>
+
+</html>

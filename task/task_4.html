@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 4</title>
+</head>
+
+<body>
+
+   <a href="../index.html">Back</a>
+   <script>
+      // Задача 4. Розробити клас Baner
+
+      //------ Поля(властивості)
+      // 1. Масив об’єктів ( графічних зображень та посилань на сайти)
+
+      //------ Методи (дії)
+      // 1. Метод випадкового вибору об’єкта (графічного зображення та посилання)
+      // 2. Метод виведення випадкового банера
+
+      class Baner {
+         constructor(arrBaners) {
+            this.arrBaners = arrBaners;
+         }
+
+         getRandomObj() {
+            const randomIndex = Math.floor(Math.random() * this.arrBaners.length);
+            return this.arrBaners[randomIndex];
+         }
+
+         showBaner() {
+            const image = this.getRandomObj().image;
+            const link = this.getRandomObj().link;
+            document.write(`<a href=${link}><img src=${image} alt=""></a>`);
+         }
+      }
+
+      const arrWithImagesAndLinks = [
+         {
+            link:
+               "https://www.olx.ua/uk/",
+            image:
+               "https://thumbs.dreamstime.com/b/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.jpg"
+         },
+         {
+            link:
+               "https://www.google.com",
+            image:
+               "https://media.istockphoto.com/id/1093110112/photo/picturesque-morning-in-plitvice-national-park-colorful-spring-scene-of-green-forest-with-pure.jpg?s=612x612&w=0&k=20&c=lpQ1sQI49bYbTp9WQ_EfVltAqSP1DXg0Ia7APTjjxz4="
+         },
+         {
+            link:
+               "https://developer.mozilla.org/ru/",
+            image:
+               "https://thumbs.dreamstime.com/b/park-golden-path-sunset-76197295.jpg"
+         },
+         {
+            link:
+               "https://uk-ua.facebook.com/",
+            image:
+               "https://media.istockphoto.com/id/1199428666/photo/way-through-the-dunes.jpg?s=170667a&w=0&k=20&c=TUj2fl2JP0QTDrdis2bwfV80xOIdMfw8B2-JpJRiEOw="
+         },
+         {
+            link:
+               "https://www.instagram.com/",
+            image:
+               "https://media.istockphoto.com/id/503710340/photo/narrow-track-upon-a-hill.jpg?s=612x612&w=is&k=20&c=A9JkucDp_YimhPfyktDG3gJupJXK4rki0IsaLx177tI="
+         }
+      ]
+
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 2</title>
+</head>
+
+<body>
+   <a href="../index.html">Back</a>
+   <script>
+      // Задача 2. Створити об’єкт «Авто».
+
+      //------ Поля(властивості)
+      // 1. Марка
+      // 2. Розмір бака
+      // 3. Кількість наявних літрів
+      // 4. Кількість місць
+      // 5. Кількість пасажирів
+
+      //
+      //------ Методи (дії)
+      // 1. Заправка на вказану кількість літрів
+      // 2. Виведення кількості пасажирів
+      // 3. Додавання пасажирів
+      // 4. Висадка пасажирів
+
+      //----------------------------------- Опис класу ----------------------------------------
+
+      // class Auto {
+      //   constructor(
+      //     brand,
+      //     fuelSize,
+      //     numberAvailableLiters,
+      //     numberSeats,
+      //     numberPessenger
+      //   ) {
+      //     this.brand = brand;
+      //     this.fuelSize = fuelSize;
+      //     this.numberAvailableLiters = numberAvailableLiters;
+      //     this.numberSeats = numberSeats;
+      //     this.numberPessenger = numberPessenger;
+      //   }
+
+      //   fueling(value) {
+      //     let currentAvailableLiters = this.numberAvailableLiters + value;
+      //     currentAvailableLiters <= this.fuelSize
+      //       ? (this.numberAvailableLiters = currentAvailableLiters)
+      //       : alert("Error");
+      //   }
+
+      //   getNumberPessenger(){
+      //     return this.numberPessenger
+      //   }
+
+      //   addingPessenger(value){
+      //     const currentNumberPessenger = this.numberPessenger + value
+      //     currentNumberPessenger <= this.numberSeats ? this.numberPessenger = currentNumberPessenger : alert('Error')
+      //   }
+
+      //   passengerDisembarkation (value){
+      //     const currentNumberPessenger = this.numberPessenger - value
+      //     currentNumberPessenger > 0 ? this.numberPessenger = currentNumberPessenger : 'Error'
+      //   }
+      // }
+
+      //----------------------------------- Конструктор функції ----------------------------------------
+
+      function Auto(brand, fuelSize, numberAvailableLiters, numberSeats, numberPessenger) {
+         this.brand = brand
+         this.fuelSize = fuelSize
+         this.numberAvailableLiters = numberAvailableLiters
+         this.numberSeats = numberSeats
+         this.numberPessenger = numberPessenger
+      }
+
+      Auto.prototype.fueling = function (value) {
+         let currentAvailableLiters = this.numberAvailableLiters + value;
+         currentAvailableLiters <= this.fuelSize
+            ? (this.numberAvailableLiters = currentAvailableLiters)
+            : alert("Error");
+      }
+
+      Auto.prototype.getnumberPessenger = function () {
+         return this.numberPessenger
+      }
+
+      Auto.prototype.addingPessenger = function (value) {
+         const currentNumberPessenger = this.numberPessenger + value
+         currentNumberPessenger <= this.numberSeats ? this.numberPessenger = currentNumberPessenger : alert('Error')
+      }
+
+      Auto.prototype.passengerDisembarkation = function (value) {
+         const currentNumberPessenger = this.numberPessenger - value
+         currentNumberPessenger > 0 ? this.numberPessenger = currentNumberPessenger : 'Error'
+      }
+
+   </script>
+</body>
+
+</html>

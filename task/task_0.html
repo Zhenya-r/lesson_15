@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 0</title>
+</head>
+
+<body>
+   <a href="../index.html">Back</a>
+   <script>
+      // Задача 0. Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у одному з них є функція знаходження суми, а у іншому – функція для знаходження добутку тих, які знаходяться між заданими мінімальним і максимальних значенням.
+      const obj1 = {
+         arrayNumbers: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+         getSumm: function () {
+            return this.arrayNumbers.reduce((summ, number) => summ + number);
+         }
+      };
+
+      const obj2 = {
+         arrayNumbers: [11, 22, 33, 44, 55, 66, 77, 88, 99],
+         getProduct: function (minValue, maxValue) {
+            return this.arrayNumbers.reduce((product, number) =>
+               number >= minValue && number <= maxValue ? product * number : product
+            );
+         }
+      };
+
+      console.log(obj1.getSumm());
+      console.log(obj2.getProduct(11, 22));
+
+      console.log(obj1.getSumm.call(obj2));
+      console.log(obj2.getProduct.call(obj1, 1, 4));
+
+      console.log(obj1.getSumm.apply(obj2));
+      console.log(obj2.getProduct.apply(obj1, [1, 4]));
+   </script>
+</body>
+
+</html>

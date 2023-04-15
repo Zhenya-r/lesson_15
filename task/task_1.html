@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 1</title>
+</head>
+
+<body>
+   <a href="../index.html">Back</a>
+   <script>
+      //Задача 1. Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку.
+
+      // ----------------------------------- Опис класу----------------------------------------
+      // ------Поля(властивості)
+      // 1. Масив, у якому зберігається поле з зайцями
+
+      //------Методи(дії)
+      // 1. Метод пострілу(задається позиція пострілу)
+      // 2. Виведення ігрового поля
+
+      //       class ShootingGallery {
+      //          constructor(numberOfShots, playFieldLength, numberRabbits) {
+      //             this.numberOfShots = numberOfShots;
+      //             this.numberRabbits = numberRabbits;
+      //             this.playField = this.createPlayField(playFieldLength, numberRabbits);
+      //          }
+
+      //          shot() {
+      //             const lastIndex = this.playField.length - 1;
+      //             const userShot = parseInt(
+      //                prompt(`Введіть позицію пострілу. (Від 0 до ${lastIndex})`)
+      //             );
+      //             return userShot;
+      //          }
+
+      //          createPlayField(playFieldLength, numberRabbits) {
+      //             const playField = new Array(playFieldLength).fill(0);
+      //             for (let rabbit = 0; rabbit < numberRabbits; rabbit++) {
+      //                let randomIndex;
+      //                do {
+      //                   randomIndex = Math.floor(Math.random() * playFieldLength);
+      //                } while (playField[randomIndex]);
+      //                playField[randomIndex] = 1;
+
+      //                // const randomIndex = Math.floor(Math.random()*playFieldLength)
+      //                // if(playField[randomIndex]){
+      //                //   rabbit --
+      //                //   continue
+      //                // }
+      //                // playField[randomIndex] = 1
+      //             }
+      //             return playField;
+      //          }
+
+      //          play() {
+      //             let deadRabbits = 0;
+      //             let shots = 0
+      //             do {
+      //                const userShot = this.shot();
+      //                if (this.playField[userShot]) {
+      //                   alert("Вы влучили!");
+      //                   deadRabbits++;
+      //                   this.playField[userShot] = 0;
+      //                } else alert("Промах");
+      //                shots++
+      //             } while (shots < this.numberOfShots && deadRabbits < this.numberRabbits)
+
+      //             shots > this.numberOfShots || deadRabbits != this.numberRabbits ? alert('Lose') : alert('Win')
+      //          }
+      //       }
+
+      //       ----------------------------------- Конструктор функції----------------------------------------
+
+      function ShootingGallery(numberOfShots, playFieldLength, numberRabbits) {
+         this.numberOfShots = numberOfShots;
+         this.numberRabbits = numberRabbits;
+         this.playField = this.createPlayField(playFieldLength, numberRabbits);
+      }
+
+      ShootingGallery.prototype.shot = function () {
+         const lastIndex = this.playField.length - 1;
+         const userShot = parseInt(
+            prompt(`Введіть позицію пострілу. (Від 0 до ${lastIndex})`)
+         );
+         return userShot;
+      };
+
+      ShootingGallery.prototype.createPlayField = function (
+         playFieldLength,
+         numberRabbits
+      ) {
+         const playField = new Array(playFieldLength).fill(0);
+         for (let rabbit = 0; rabbit < numberRabbits; rabbit++) {
+            let randomIndex;
+            do {
+               randomIndex = Math.floor(Math.random() * playFieldLength);
+            } while (playField[randomIndex]);
+            playField[randomIndex] = 1;
+         }
+         return playField;
+      };
+
+      ShootingGallery.prototype.play = function () {
+         let deadRabbits = 0;
+         let shots = 0;
+         do {
+            const userShot = this.shot();
+            if (this.playField[userShot]) {
+               alert("Вы влучили!");
+               deadRabbits++;
+               this.playField[userShot] = 0;
+            } else alert("Промах");
+            shots++;
+         } while (shots < this.numberOfShots && deadRabbits < this.numberRabbits);
+
+         shots > this.numberOfShots || deadRabbits != this.numberRabbits
+            ? alert("Lose")
+            : alert("Win");
+      };
+
+      let game = new ShootingGallery(5, 10, 2);
+
+      game.play();
+
+   </script>
+</body>
+
+</html>

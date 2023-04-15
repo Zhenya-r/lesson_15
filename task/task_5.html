@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Task 5</title>
+</head>
+
+<body>
+   <a href="../index.html">Back</a>
+   <script>
+      // Задача 5. Розробити клас «Керівник танців»
+
+      //------ Поля(властивості)
+      // 1. Масив імен хлопців
+      // 2. Масив імен дівчат
+
+      //------ Методи (дії)
+      // 1. Метод випадкового вибору імені хлопця
+      // 2. Метод випадкового вибору імені дівчини
+      // 3. Метод виведення пари для танців
+      // 4. Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців
+
+      class Supervisor {
+         constructor(listBoysNames, listGirlsNames) {
+            this.listBoysNames = listBoysNames;
+            this.listGirlsNames = listGirlsNames;
+         }
+
+         getRandomBoyName() {
+            const randomIndex = Math.floor(Math.random() * this.listBoysNames.length);
+            return this.listBoysNames[randomIndex];
+         }
+
+         getRandomGirlName() {
+            const randomIndex = Math.floor(Math.random() * this.listGirlsNames.length);
+            return this.listGirlsNames[randomIndex];
+         }
+
+         createPartner() {
+            alert(`${this.getRandomBoyName()} танцює з ${this.getRandomGirlName()}`);
+         }
+
+         run() {
+            setTimeout(() => {
+               this.createPartner();
+               this.run();
+            }, 2000);
+         }
+      }
+
+      const boysList = [
+         "Vasya",
+         "Zhenya",
+         "Yaroslav",
+         "Daniil",
+         "Oleg",
+         "Maxim",
+         "Vanya"
+      ];
+      const girlsList = [
+         "Vika",
+         "Zina",
+         "Galya",
+         "Nastya",
+         "Anna",
+         "Luba",
+         "Vira",
+         "Lubov"
+      ];
+
+   </script>
+</body>
+
+</html>
